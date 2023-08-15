@@ -9,4 +9,22 @@
 }
 body{
     text-align: center;
+    background-color: black;
+}
+h2{
+    margin-top: 50px;
+    text-decoration: overline;
+}
+.sun{
+    background-color: yellow;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    margin-left: 100px; 
+}
+.sun h3{
+     color: black;
+    padding: 50% ;
 }
