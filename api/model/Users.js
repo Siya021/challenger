@@ -1,5 +1,5 @@
 // users
-const db = require("../config");
+const db = require('./config')
 const { hash, compare, hashSync } = require('bcrypt')
 const { createToken } = require('../middleware/AuthenticateUser')
 
@@ -10,7 +10,7 @@ class Users {
         userDOB, emailAdd, profileUrl
         FROM Users;`;
     db.query(query, (err, results) => {
-      if (err) throw err;
+      if (err) throw err
       res.json({
         status: res.statusCode,
         results,
@@ -22,9 +22,9 @@ class Users {
         lastName, gender, 
         userDOB, emailAdd, profileUrl
         FROM Users
-        WHERE UserID = ${req.params.id};`;
+        WHERE UserID = ${req.params.id};`
     db.query(query, (err, result) => {
-      if (err) throw err;
+      if (err) throw err
       res.json({
         status: res.statusCode,
         result,
@@ -68,7 +68,7 @@ class Users {
         WHERE userID = ?
         `;
     db.query(query, [req.body, req.params.id], (err) => {
-      if (err) throw err;
+      if (err) throw err
       res.json({
         status: res.statusCode,
         msg: "The user record was updated.",
@@ -81,7 +81,7 @@ class Users {
         WHERE userID = ${req.params.id};
         `;
     db.query(query, (err) => {
-      if (err) throw err;
+      if (err) throw err
       res.json({
         status: res.statusCode,
         msg: "A user record was deleted.",

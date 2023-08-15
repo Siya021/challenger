@@ -7,7 +7,7 @@ const { users } = require('../model')
 
 
 //========== User Router ===========
-routes.get('/users', (req, res) => {
+routes.get('/Users', (req, res) => {
     users.fetchUsers(req, res)
 })
 routes.get('/user/:id', (req, res) => {
@@ -20,7 +20,7 @@ routes.put('/user:id', bodyParser.json(), (req, res) => {
     users.updateUser(req, res)
 })
 routes.patch('/user:id', bodyParser.json(), (req, res) => {
-  users.updateUser(req, res);
+  users.updateUser(req, res)
 })
 routes.delete('/user/:id', (req, res) => {
     users.deleteUser(req, res)
