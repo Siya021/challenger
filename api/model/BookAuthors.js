@@ -52,10 +52,9 @@ class BookAuthors{
             if (err) throw err
             res.json({
                 status: res.statusCode,
-                msg: "Author was deleted."
+                msg: "An author record was deleted."
             })
         })
     }
-
 }
 module.exports = BookAuthors
