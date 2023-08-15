@@ -36,6 +36,33 @@ class Orders {
     async registerOrder(req, res) {
         
     }
-    
+    // UPDATE \\
+    updateOrders(req, res) {
+        const query = `
+        UPDATE FROM Orders
+        SET ?
+        WHERE orderID = ?;
+        `
+        db.query(query, [req.body, req.params.id], (err) => {
+            if (err) throw err
+            res.json({
+                status: res.statusCode, 
+                msg: "An order record was updated.",
+            })
+        })
+    }
+    //DELETE\\
+    deleteOrder(req, res) {
+        const query = `
+        DELETE FROM Orders
+        WHERE orderID = ${req.params.id};`
+        db.query(query, (err) => {
+            if (err) throw err 
+            res.json({
+                status: res.statusCode,
+                msg: "An order record was deleted."
+            })
+        })
+    }
 }
 module.exports = Orders
