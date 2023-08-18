@@ -1,12 +1,12 @@
 // Controller index
 const express = require('express')
 const bodyParser = require('body-parser')
+const { verifyAToken } = require('../middleware/AuthenticateUser')
 const routes = express.Router()
 //Importing All model's objects
-const { users } = require('../model')
+const { users, books, authors, orders } = require('../model')
 
-
-//========== User Router ===========
+//========== User Router ==========
 routes.get('/Users', (req, res) => {
     users.fetchUsers(req, res)
 })
@@ -14,8 +14,12 @@ routes.get('/Users', (req, res) => {
 routes.get('/user/:id', (req, res) => {
     users.fetchUser(req, res)
 })
+// ==== LOGIN === \\
+routes.post('/login', bodyParser.json(), (req, res) => {
+    
+})
 // ==== REGISTER ==== \\
-routes.post('register', bodyParser.json(), (req, res) => {
+routes.post('/register', bodyParser.json(), (req, res) => {
     users.register(req,res)
 })
 // ==== UPDATE ==== \\
@@ -37,3 +41,4 @@ module.exports = {
 routes.post("/login", bodyParser.json(), (req, res) => {
   users.login(req, res);
 });
+
